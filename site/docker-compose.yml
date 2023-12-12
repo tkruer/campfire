@@ -7,7 +7,7 @@ services:
     container_name: mojo
     build :
       context: .
-      dockerfile: Dockerfile.mojosdk
+      dockerfile: Dockerfile
       args:
         - AUTH_KEY=1Auth_token
       no_cache : true
