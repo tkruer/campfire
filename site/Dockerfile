@@ -22,4 +22,4 @@ RUN curl https://get.modular.com | sh - && \
     modular auth $AUTH_KEY 
 RUN modular install mojo
 
-RUN mojo --version
+RUN mojo main.mojo
