@@ -49,7 +49,7 @@ COPY . /app
 
 EXPOSE 8000
 
-# RUN mojo main.mojo
+RUN mojo test.mojo
 # # RUN python main.py
 
 # # Use a base Python image
