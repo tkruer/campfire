@@ -17,7 +17,7 @@ struct CampfireApp:
     fn run(inout self) raises:        
         let server = Python.import_module("http.server")        
         let httpd = server.HTTPServer(('localhost', self.port), server.SimpleHTTPRequestHandler)
-        let status = "Starting server at http://localhost:" + String(self.port)
+        let status = "Starting server at" + String(self.host) + String(self.port)
         print(status)
         _ = httpd.serve_forever()
     

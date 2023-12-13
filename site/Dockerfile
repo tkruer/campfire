@@ -49,4 +49,5 @@ COPY . /app
 
 EXPOSE 8000
 
-RUN mojo main.mojo
+# RUN mojo main.mojo
+RUN python main.py
