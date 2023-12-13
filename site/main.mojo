@@ -1,7 +1,10 @@
-from python.python import Python
-from python.object import PythonObject
+from campfire import campfire
 
 fn main() raises:
-    Python.add_to_path(".")
-    let server = Python.import_module("utils")
-    _ = server.run()
+    let pageHTML: FileHandle = open("index.html", "r")
+    var cf = campfire.CampfireApp(
+        port=8080, 
+        host="localhost",
+        pageContent=pageHTML.read()
+    )
+    cf.run()
