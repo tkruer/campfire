@@ -48,4 +48,4 @@ COPY . /
 
 EXPOSE 8000
 
-CMD ["mojo" "test.mojo"]
+RUN mojo main.mojo
