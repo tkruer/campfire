@@ -1,10 +1,12 @@
 from campfire import campfire
+import os 
 
 fn main() raises:
-    let pageHTML: FileHandle = open("index.html", "r")
+    let pageIndex: FileHandle = open("index.html", "r")
     var cf = campfire.CampfireApp(
         port=8080, 
         host="localhost",
-        pageContent=pageHTML.read()
+        pageContent=pageIndex.read(),
+        pagePath="./pages",
     )
     cf.run()

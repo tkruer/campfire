@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: center;">
+<div style="justify-content: center;">
     <img src="./docs/campfire.png" width="300" height="300">
 </div>
 
