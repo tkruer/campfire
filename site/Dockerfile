@@ -11,9 +11,22 @@ RUN apt-get update \
    sudo \
    curl \
    wget \
-   python3-all \
    git && \
    rm -rf /var/lib/apt/lists/*
+
+# Download the latest version of minicoda py3.8 for linux x86/x64.
+RUN curl -fsSL https://repo.anaconda.com/miniconda/$( wget -O - https://repo.anaconda.com/miniconda/ 2>/dev/null | grep -o 'Miniconda3-py38_[^"]*-Linux-x86_64.sh' | head -n 1) > /tmp/miniconda.sh \
+	&& chmod +x /tmp/miniconda.sh \
+	&& /tmp/miniconda.sh -b -p /opt/conda
+
+ENV PATH=/opt/conda/bin:$PATH
+RUN conda init
+
+RUN pip install \
+	jupyterlab \
+	ipykernel \
+	matplotlib \
+	ipywidgets
 
 ARG AUTH_KEY=mut_67a47e3e8aeb45f6b12063ba19b042d7
 ENV AUTH_KEY=$AUTH_KEY
