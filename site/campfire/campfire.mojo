@@ -1,11 +1,13 @@
-from python import Python
+from python import Python, PythonObject
 
-struct Campfire:
+struct CampfireApp:
     var port: Int
+    var host: String
     var pageContent: String
 
-    fn __init__(inout self, port: Int, pageContent: String) raises:
+    fn __init__(inout self, port: Int, host: String, pageContent: String) raises:
         self.port = port
+        self.host = host
         self.pageContent = pageContent
 
     fn serve_page(inout self) raises:
