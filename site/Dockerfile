@@ -42,9 +42,9 @@ ENV PATH="$PATH:$MODULAR_HOME/pkg/packages.modular.com_mojo/bin"
 # Change permissions to allow for Apptainer/Singularity containers
 RUN chmod -R a+rwX /root
 
-WORKDIR /app
+WORKDIR /
 # Step 3: Copy your application files to the container
-COPY . /app
+COPY . /
 
 EXPOSE 8000
 
