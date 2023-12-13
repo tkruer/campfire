@@ -8,15 +8,14 @@ struct Campfire:
         self.port = port
         self.pageContent = pageContent
 
-    fn serve_page(self) raises:
+    fn serve_page(inout self) raises:
         let handler = Python.import_module("http.server").SimpleHTTPRequestHandler
         _ = handler.send_response(200)
 
-    fn run(self) raises:
-        print("Starting server on port", self.port)
-        let server = Python.import_module("http.server")
-        
+    fn run(inout self) raises:        
+        let server = Python.import_module("http.server")        
         let httpd = server.HTTPServer(('localhost', self.port), server.SimpleHTTPRequestHandler)
-        print("Serving page")
+        let status = "Starting server at http://localhost:" + String(self.port)
+        print(status)
         _ = httpd.serve_forever()
-        
+    

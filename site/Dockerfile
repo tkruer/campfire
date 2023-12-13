@@ -48,4 +48,5 @@ WORKDIR /app
 # Step 3: Copy your application files to the container
 COPY . /app
 
-RUN mojo main.mojo
+# RUN mojo main.mojo
+RUN python test.py
