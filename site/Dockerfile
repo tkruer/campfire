@@ -48,12 +48,4 @@ WORKDIR /app
 # Step 3: Copy your application files to the container
 COPY . /app
 
-# Step 4: Set the working directory inside the container
-
-
-# Step 5: Compile your application (if necessary)
-# RUN [Command to compile your Mojo application]
-
-# Step 6: Specify the command to⬤
-
 RUN mojo main.mojo
