@@ -3,7 +3,7 @@
 </div>
 
 # Campfire
-A web framework for the Mojo programming language 🔥
+A *WIP* web framework for the Mojo programming language 🔥
 
 ## Usage
 
