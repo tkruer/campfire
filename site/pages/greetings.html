@@ -1,0 +1,45 @@
+<!-- FILEPATH: /Users/tylerkruer/campfire/pages/greetings.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greetings Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h1 class="text-4xl font-bold">Greetings</h1>
+    <form id="greetingsForm" action="/api/greetings" method="POST" class="mx-auto max-w-md border border-gray-300 p-4 rounded-lg">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded-md p-2 mt-2">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Submit</button>
+    </form>
+    <div id="responseContainer" class="hidden mt-4">
+        <h2 class="text-2xl font-bold">Response:</h2>
+        <p id="responseText"></p>
+    </div>
+    <a href="/" class="block text-center mt-4 underline">Go back to home</a>
+    <script>
+        document.getElementById("greetingsForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var name = document.getElementById("name").value;
+            var data = { "name": name };
+            fetch("/api/greetings", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response:", data);
+                document.getElementById("responseContainer").classList.remove("hidden");
+                document.getElementById("responseText").innerText = data.message;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                // Handle the error as needed
+            });
+        });
+    </script>
+</body>
+</html>
